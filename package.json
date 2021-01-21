@@ -1,0 +1,41 @@
+{
+  "name": "meh-footer-vue",
+  "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --no-error-on-unmatched-pattern .",
+    "format": "prettier --ignore-path .gitignore --check '**/*.{css,graphql,html,json,md,scss,yml}'",
+    "prepublishOnly": "yarn lint && yarn format"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "yarn lint --fix",
+      "git add"
+    ],
+    "*.{css,graphql,html,json,md,scss,yml}": [
+      "yarn format --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "license": "MIT",
+  "repository": "github:greenhousecode/meh-footer-vue",
+  "author": "Rick Stevens <rick.stevens@greenhousegroup.com>",
+  "devDependencies": {
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.4.1",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
+  }
+}
